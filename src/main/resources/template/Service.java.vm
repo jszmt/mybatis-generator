@@ -1,0 +1,25 @@
+package ${package}.${moduleName}.service;
+
+import ${package}.${moduleName}.entity.${className}Entity;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface I${className}Service {
+	
+	${className} selectOneByObject(${className} ${className});
+	
+	List<${className}> selectListByObject(${className} ${className});
+		
+	void insert(${className} ${classname});
+	
+	void update(${className} ${classname});
+	
+}

@@ -1,0 +1,23 @@
+package ${package}.${moduleName}.dao;
+
+import ${package}.${moduleName}.domain.${className}Entity;
+import ${mainPath}.modules.sys.dao.BaseDao;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * ${comments}
+ * 
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
+public interface ${className}Dao {
+
+    ${className} selectOneByObject(${className} ${className});
+	
+	List<${className}> selectListByObject(${className} ${className});
+		
+	void insert(${className} ${classname});
+	
+	void update(${className} ${classname});
+}

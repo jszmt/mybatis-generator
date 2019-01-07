@@ -1,0 +1,41 @@
+package ${package}.${moduleName}.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.alibaba.dubbo.config.annotation.Service;
+
+import java.util.List;
+import java.util.Map;
+
+import ${package}.${moduleName}.dao.${className}Dao;
+import ${package}.${moduleName}.entity.${className};
+import ${package}.${moduleName}.service.${className}Service;
+
+
+
+@Service()
+public class ${className}Service implements I${className}Service {
+
+	@Autowired
+	private ${className}Dao ${classname}Dao;
+	
+	@Override
+	public ${className} selectOneByObject(${className} ${className}){
+		return ${classname}Dao.selectOneByObject(${className});
+	}
+	
+	@Override
+	public List<${className}> selectListByObject(${className} ${className}){
+		return ${classname}Dao.selectListByObject(${className});
+	}
+		
+	@Override
+	public void insert(${className} ${classname}){
+		${classname}Dao.insert(${classname});
+	}
+	
+	@Override
+	public void update(${className} ${classname}){
+		${classname}Dao.update(${classname});
+	}
+	
+}

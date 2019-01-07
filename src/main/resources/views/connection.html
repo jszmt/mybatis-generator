@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>代码生成器</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="plugins/jqgrid/ui.jqgrid-bootstrap.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="libs/jquery.min.js"></script>
+<script src="plugins/layer/layer.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="libs/vue.min.js"></script>
+<script src="plugins/jqgrid/grid.locale-cn.js"></script>
+<script src="plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="js/common.js"></script>
+</head>
+<body>
+<div id="rrapp">
+	<div class="grid-btn" id="in">
+		<div class="form-group ">
+			<input type="text" class="form-control" v-model="q.conName" @keyup.enter="query" placeholder="连接名（必输项）">
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.url" @keyup.enter="query" placeholder="主机名或IP地址（必输项）">
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.port" @keyup.enter="query" placeholder="端口（必输项）" value="3306">
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.database" @keyup.enter="query" placeholder="数据库名称（必输项）" >
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.usrName" @keyup.enter="query" placeholder="用户名（必输项）" >
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.password" @keyup.enter="query" placeholder="密码 （必输项）">
+		</div>
+		
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.packageName" @keyup.enter="query" placeholder="包名（例：com.wugz）">
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.moduleName" @keyup.enter="query" placeholder="模块名称（例：app）">
+		</div>
+		
+	    <div class="form-group ">
+			<input type="text" class="form-control" v-model="q.author" @keyup.enter="query" placeholder="作者 ">
+		</div>
+		
+		<div class="form-group ">
+			<input type="text" class="form-control" v-model="q.email" @keyup.enter="query" placeholder="邮箱 ">
+		</div>		
+		<a class="btn btn-default" @click="getHistory">历史连接记录</a>
+		<a class="btn btn-default" @click="reset">清空</a>
+		<a class="btn btn-default" @click="save">保存</a>
+		<a class="btn btn-primary" @click="getConnection"><i class="fa fa-file-code-o"></i>&nbsp;连接开始！</a>
+	</div>
+    <table id="jqGrid"></table>
+    <div id="jqGridPager"></div>
+</div>
+
+<script src="js/connection.js"></script>
+</body>
+</html>

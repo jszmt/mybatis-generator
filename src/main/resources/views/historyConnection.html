@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>历史连接信息记录</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="plugins/jqgrid/ui.jqgrid-bootstrap.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="libs/jquery.min.js"></script>
+<script src="plugins/layer/layer.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="libs/vue.min.js"></script>
+<script src="plugins/jqgrid/grid.locale-cn.js"></script>
+<script src="plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="js/common.js"></script>
+</head>
+<body>
+<div id="rrapp">
+	<table id="jqGrid"></table>
+	<div class="grid-btn">
+		<a class="btn btn-default" @click="goBefore">&nbsp;返回</a>
+		<a class="btn btn-primary" @click="chooseCon"><i class="fa fa-file-code-o"></i>选择</a>
+		<a class="btn btn-default" @click="deleteCon">&nbsp;删除</a>
+	</div>
+		
+</div>
+</body>
+<script type="text/javascript">
+$(function(){
+  pageInit();
+});
+function pageInit(){
+  jQuery("#jqGrid").jqGrid(
+      {
+        datatype : "local",
+        height : 250,
+        colNames : [ '连接名称', '连接地址', '数据库'],
+        colModel : [ 
+                     {name : 'conName',index : 'conName',width : 60}, 
+                     {name : 'url',index : 'url',width : 90}, 
+                     {name : 'database',index : 'database',width : 100}
+                   ],
+        multiselect : false,
+        caption : "历史连接记录",
+        ondblClickRow: function(id){
+        	var con = historyConnection[id-1];
+ 			//console.log(con.conName);
+ 			if(con == null){
+ 				return ;
+ 			}
+ 			window.sessionStorage.setItem("con",JSON.stringify(con));
+ 			window.location.href = "connection.html"
+         }
+      });
+  for ( var i = 0; i <= historyConnection.length; i++){
+    jQuery("#jqGrid").jqGrid('addRowData', i + 1, historyConnection[i]);
+  }
+}
+
+var vm = new Vue({
+	el:'#rrapp',
+	data:{
+		q:{
+			conName: null,
+			url: null,
+			database: null
+		}
+	},
+	methods: {
+		chooseCon: function () {
+			var grid = $("#jqGrid");
+		    var rowKey = grid.getGridParam("selrow");
+		    var con = historyConnection[rowKey-1];
+			//console.log(con.conName);
+			if(con == null){
+				return ;
+			}
+			window.sessionStorage.setItem("con",JSON.stringify(con));
+			window.location.href = "connection.html"
+		},
+		goBefore: function(){
+			window.location.href = "connection.html"
+		},
+		deleteCon: function(){
+			var grid = $("#jqGrid");
+		    var rowKey = grid.getGridParam("selrow");
+		    historyConnection.splice(rowKey-1,1);
+		    window.localStorage.setItem("historyConnection",JSON.stringify(historyConnection));
+		    window.location.href = "historyConnection.html";
+		}
+	}
+});
+</script>
+</html>
