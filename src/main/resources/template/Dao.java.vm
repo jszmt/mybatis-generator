@@ -6,18 +6,43 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * ${comments}
- * 
  * @author ${author}
  * @email ${email}
  * @date ${datetime}
  */
 public interface ${className}Dao {
 
-    ${className} selectOneByObject(${className} ${className});
-	
-	List<${className}> selectListByObject(${className} ${className});
-		
-	void insert(${className} ${classname});
-	
-	void update(${className} ${classname});
+    /**
+     * @Author ${author}
+     * @Description 通用查询方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     * @return ${className}
+     */
+    ${className} selectOneByObject(${className} ${classname});
+
+    /**
+     * @Author ${author}
+     * @Description 通用查询方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     * @return List<${className}>
+     */
+    List<${className}> selectListByObject(${className} ${classname});
+
+    /**
+     * @Author ${author}
+     * @Description 新增方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     */
+    void insert(${className} ${classname});
+
+    /**
+     * @Author ${author}
+     * @Description 更新方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     */
+    void update(${className} ${classname});
 }

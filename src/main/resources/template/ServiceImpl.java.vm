@@ -11,21 +11,26 @@ import ${package}.${moduleName}.entity.${className};
 import ${package}.${moduleName}.service.${className}Service;
 
 
-
+/**
+ * ${comments}
+ * @author ${author}
+ * @email ${email}
+ * @date ${datetime}
+ */
 @Service()
-public class ${className}Service implements I${className}Service {
+public class ${className}ServiceImpl implements ${className}Service {
 
 	@Autowired
 	private ${className}Dao ${classname}Dao;
 	
 	@Override
-	public ${className} selectOneByObject(${className} ${className}){
-		return ${classname}Dao.selectOneByObject(${className});
+	public ${className} selectOneByObject(${className} ${classname}){
+		return ${classname}Dao.selectOneByObject(${classname});
 	}
 	
 	@Override
-	public List<${className}> selectListByObject(${className} ${className}){
-		return ${classname}Dao.selectListByObject(${className});
+	public List<${className}> selectListByObject(${className} ${classname}){
+		return ${classname}Dao.selectListByObject(${classname});
 	}
 		
 	@Override

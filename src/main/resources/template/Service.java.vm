@@ -7,19 +7,44 @@ import java.util.Map;
 
 /**
  * ${comments}
- * 
  * @author ${author}
  * @email ${email}
  * @date ${datetime}
  */
-public interface I${className}Service {
-	
-	${className} selectOneByObject(${className} ${className});
-	
-	List<${className}> selectListByObject(${className} ${className});
-		
+public interface ${className}Service {
+
+    /**
+     * @Author ${author}
+     * @Description 通用查询方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     * @return ${classname}
+     */
+	${className} selectOneByObject(${className} ${classname});
+
+    /**
+     * @Author ${author}
+     * @Description 通用查询方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     * @return List<${className}>
+     */
+	List<${className}> selectListByObject(${className} ${classname});
+
+    /**
+     * @Author ${author}
+     * @Description 新增方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     */
 	void insert(${className} ${classname});
-	
+
+    /**
+     * @Author ${author}
+     * @Description 更新方法。
+     * @Date  ${datetime}
+     * @Param [${classname}]
+     */
 	void update(${className} ${classname});
 	
 }
